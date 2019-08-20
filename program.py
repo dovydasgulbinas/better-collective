@@ -62,13 +62,56 @@ class CSVDBLoader(CSVKitUtility):
                 chunk_size=self.args.chunk_size
             )
 
+    def time_it(self, start_time=None):
+
+        if start_time:
+            return time.perf_counter() - start_time
+        else:
+            return time.perf_counter()
+
+
     def run_analysis(self):
+        print("Running Tasked Analysis")
         # Let's create a table name
         self.connection_string = f'sqlite:///{self.DB_NAME}'
         self._build_table_name()
         self._init_connection()
-
+        print("Building Database")
         self._build_db()
+
+        q1 = f'''select "Address" from "{self.table_name}" \
+where "Address" LIKE "%interwetten-news%";'''
+
+
+        start = self.time_it()
+        rows = self.connection.execute(q1)
+        delta = self.time_it(start)
+        print(f'The query `{q1}` took: {delta} seconds')
+
+        for row in rows:
+            # TODO: Add to json
+            print(row['Address'])
+
+        q2 = f'''select count(*) as _count, "Address" from "{self.table_name}" \
+where  "Inlinks" > 1 and "Status Code" = 302 and \
+"Redirect URL" like "%plus.google.com%";'''
+
+
+        start = self.time_it()
+        rows = self.connection.execute(q2)
+        delta = self.time_it(start)
+        print(f'The query `{q2}`\ntook: {delta} seconds')
+
+        for row in rows:
+            # TODO: Add to json general function keys {colname, [values], many}
+            print(row['_count'], row['Address'])
+
+
+        q3 = f'''select "Title 1" from "{self.table_name}" where \
+"Title 1 Length" > 65 and \
+("Title 1 Pixel Width" < 550 or "Title 1 Pixel Width" > 700 ) \
+and "Title 1" like "%2018%"'''
+
 
     def main(self):
         if self.args.run_analysis:
