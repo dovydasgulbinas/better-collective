@@ -9,8 +9,8 @@
         ],
         "__meta__": {
             "description": "contains: `interwetten-news`",
-            "duration_s": 0.0005533340000001274,
-            "query": "select \"Address\" from \"sportwettentest_1566391974\" where \"Address\" LIKE \"%interwetten-news%\";"
+            "duration_s": 0.0005224259999998537,
+            "query": "select \"Address\" from \"sportwettentest_1566392995\" where \"Address\" LIKE \"%interwetten-news%\";"
         }
     },
     {
@@ -20,8 +20,8 @@
         "Number Of Pages": 0,
         "__meta__": {
             "description": "Inlinks to plus.google.com",
-            "duration_s": 0.002990033000000114,
-            "query": "select count(*) as \"Number Of Pages\", \"Address\" from \"sportwettentest_1566391974\" where  \"Inlinks\" > 1 and \"Status Code\" = 302 and \"Redirect URL\" like \"%plus.google.com%\";"
+            "duration_s": 0.0028956560000001907,
+            "query": "select count(*) as \"Number Of Pages\", \"Address\" from \"sportwettentest_1566392995\" where  \"Inlinks\" > 1 and \"Status Code\" = 302 and \"Redirect URL\" like \"%plus.google.com%\";"
         }
     },
     {
@@ -47,8 +47,8 @@
         ],
         "__meta__": {
             "description": "Titles with length > 65 ...",
-            "duration_s": 0.00016905500000019558,
-            "query": "select \"Title 1\" from \"sportwettentest_1566391974\" where \"Title 1 Length\" > 65 and (\"Title 1 Pixel Width\" < 550 or \"Title 1 Pixel Width\" > 700 ) and \"Title 1\" like \"%2018%\""
+            "duration_s": 0.0001468550000001123,
+            "query": "select \"Title 1\" from \"sportwettentest_1566392995\" where \"Title 1 Length\" > 65 and (\"Title 1 Pixel Width\" < 550 or \"Title 1 Pixel Width\" > 700 ) and \"Title 1\" like \"%2018%\""
         }
     }
 ]
