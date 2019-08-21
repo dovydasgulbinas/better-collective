@@ -1,0 +1,54 @@
+[
+    {
+        "Address": [
+            "https://www.sportwettentest.net/wettanbieter-news/interwetten-news/page/2/",
+            "https://www.sportwettentest.net/wettanbieter-news/interwetten-news/page/3/",
+            "https://www.sportwettentest.net/wettanbieter-news/interwetten-news/page/4/",
+            "https://www.sportwettentest.net/wettanbieter-news/interwetten-news/page/5/",
+            "https://www.sportwettentest.net/wettanbieter-news/interwetten-news/"
+        ],
+        "__meta__": {
+            "description": "contains: `interwetten-news`",
+            "duration_s": 0.0005533340000001274,
+            "query": "select \"Address\" from \"sportwettentest_1566391974\" where \"Address\" LIKE \"%interwetten-news%\";"
+        }
+    },
+    {
+        "Address": [
+            null
+        ],
+        "Number Of Pages": 0,
+        "__meta__": {
+            "description": "Inlinks to plus.google.com",
+            "duration_s": 0.002990033000000114,
+            "query": "select count(*) as \"Number Of Pages\", \"Address\" from \"sportwettentest_1566391974\" where  \"Inlinks\" > 1 and \"Status Code\" = 302 and \"Redirect URL\" like \"%plus.google.com%\";"
+        }
+    },
+    {
+        "Title 1": [
+            "San Marino vs Deutschland - WM 2018 Qualifikation Wetten & Quoten | Sportwetten Test",
+            "Nordirland vs Deutschland - WM 2018 Qualifikation Wetten & Quoten | Sportwetten Test",
+            "Nur w\u00e4hrend der WM 2018: bis zu 150 \u20ac Sportwetten Bonus bei Interwetten | Sportwetten Test",
+            "Wettquoten SV Sandhausen - Hamburger SV | 2. Liga Wetten 2018/19 | Sportwetten Test",
+            "Wettquoten SC Freiburg - VfB Stuttgart | Bundesliga Wetten 2018/19",
+            "Deutschland vs Nordirland - WM 2018 Qualifikation Wetten & Quoten | Sportwetten Test",
+            "Bayern M\u00fcnchen vs. FC Sevilla Wettquoten - Champions League 2018 | Sportwetten Test",
+            "Champions League Achtelfinale 2018 Hinspiele \u2013 News & Wettquoten | Sportwetten Test",
+            "Tschechien vs Deutschland - WM 2018 Qualifikation Wetten & Quoten | Sportwetten Test",
+            "Norwegen vs. Deutschland - WM 2018 Qualifikation Wetten & Quoten | Sportwetten Test",
+            "Schachtar Donezk vs. AS Rom Wettquoten - Champions League 2018 | Sportwetten Test",
+            "Deutschland vs Aserbaidschan - WM 2018 Qualifikation Wetten & Quoten | Sportwetten Test",
+            "Deutschland vs. Tschechien - WM 2018 Qualifikation Wetten & Quoten | Sportwetten Test",
+            "Gesamtsieger der Vierschanzentournee 2018: Favoriten & Wettquoten | Sportwetten Test",
+            "Deutschland vs Norwegen - WM 2018 Qualifikation Wetten & Quoten | Sportwetten Test",
+            "Real Madrid vs. Juventus Turin Wettquoten - Champions League 2018 | Sportwetten Test",
+            "FC Chelsea vs. FC Barcelona Wettquoten - Champions League 2018 | Sportwetten Test",
+            "FC Sevilla vs. Manchester United Wettquoten - Champions League 2018 | Sportwetten Test"
+        ],
+        "__meta__": {
+            "description": "Titles with length > 65 ...",
+            "duration_s": 0.00016905500000019558,
+            "query": "select \"Title 1\" from \"sportwettentest_1566391974\" where \"Title 1 Length\" > 65 and (\"Title 1 Pixel Width\" < 550 or \"Title 1 Pixel Width\" > 700 ) and \"Title 1\" like \"%2018%\""
+        }
+    }
+]

@@ -4,14 +4,14 @@ import json
 from collections import namedtuple
 
 import agate
-import agatesql  # this import is needed since it overrides agate namespace
+import agatesql  # this import is needed since it adds .to_sql() to namespace
 from csvkit.cli import CSVKitUtility
 from sqlalchemy import create_engine
 
 
-class CSVDBLoader(CSVKitUtility):
+class BetterCollectiveReporter(CSVKitUtility):
 
-    DB_NAME = '.database.db'
+    DB_NAME = 'data/.database.db'
     Field = namedtuple('Field', 'name is_multi')
 
     def add_arguments(self):
@@ -78,8 +78,8 @@ class CSVDBLoader(CSVKitUtility):
 
     def serialize_and_store(self, serializable_ob):
 
+        # let's serialize & prettify the json
         json_ob = json.dumps(serializable_ob,  indent=4, sort_keys=True)
-        # let's prettify the json
 
         if self.args.output_file:
             print(f'Exported JSON to: {self.args.output_file}')
@@ -165,6 +165,7 @@ and "Title 1" like "%2018%"''',
 
         if self.connection:
             self.connection.close()
+            os.remove(self.DB_NAME)
 
     def main(self):
         if self.args.run_analysis:
@@ -172,7 +173,7 @@ and "Title 1" like "%2018%"''',
 
 
 def launch_new_instance():
-    utility = CSVDBLoader()
+    utility = BetterCollectiveReporter()
     utility.run()
 
 
