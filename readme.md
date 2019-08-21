@@ -6,13 +6,22 @@ Run required analysis by printing JSON to the terminal:
 
     python program.py --run-analysis --skip-lines=1 data/sportwettentest.csv
 
+    # Using Docker
+    docker run megamorphf/better-collective --run-analysis --skip-lines=1 data/sportwettentest.csv
+
 Run required analysis by storing JSON file to file:
 
     python program.py --run-analysis --skip-lines=1 --output-file=data/results.json  data/sportwettentest.csv
 
+    # Using Docker
+    docker run megamorphf/better-collective --run-analysis --skip-lines=1 --output-file=data/results.json data/sportwettentest.csv
+
 Get help about this CLI utility:
 
-    python program.py --run-analysis --skip-lines=1 --output_file data/sportwettentest.csv
+    python program.py --help
+
+    # Using Docker
+    docker run megamorphf/better-collective 
 
 ## About this program
 
