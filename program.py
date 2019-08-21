@@ -11,7 +11,7 @@ from sqlalchemy import create_engine
 
 class CSVDBLoader(CSVKitUtility):
 
-    DB_NAME = 'database.db'
+    DB_NAME = '.database.db'
     Field = namedtuple('Field', 'name is_multi')
 
     def add_arguments(self):
@@ -27,7 +27,7 @@ class CSVDBLoader(CSVKitUtility):
                                     type=int,
                                     help='Limit CSV dialect sniffing to the specified number of bytes. Specify "0" to disable sniffing entirely.')
 
-        self.argparser.add_argument('--chunk-size', dest='chunk_size', type=int,
+        self.argparser.add_argument('--chunk-size', dest='chunk_size',type=int,
                                     help='Chunk size for batch insert into the table.')
 
         self.argparser.add_argument('-I', '--no-inference', dest='no_inference', action='store_true',
@@ -53,9 +53,9 @@ class CSVDBLoader(CSVKitUtility):
 
         table = agate.Table.from_csv(
             self.args.input_path,
-            skip_lines=self.args.skip_lines,
             sniff_limit=self.args.sniff_limit,
             column_types=self.get_column_types(),
+            skip_lines=self.args.skip_lines,
             **self.reader_kwargs
         )
 
@@ -162,6 +162,9 @@ and "Title 1" like "%2018%"''',
         self._build_db()
         result_list = self.query_list()
         self.serialize_and_store(result_list)
+
+        if self.connection:
+            self.connection.close()
 
     def main(self):
         if self.args.run_analysis:
