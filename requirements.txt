@@ -3,7 +3,7 @@ agate-dbf==0.2.1
 agate-excel==0.2.3
 agate-sql==0.5.4
 Babel==2.7.0
-certifi==2019.6.16
+certifi==2022.12.7
 csvkit==1.0.4
 dbfread==2.0.7
 et-xmlfile==1.0.1
